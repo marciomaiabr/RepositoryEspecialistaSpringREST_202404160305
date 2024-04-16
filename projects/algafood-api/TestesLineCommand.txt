@@ -1,0 +1,30 @@
+
+mvn clean
+
+mvn package
+
+
+
+java -jar ./target/algafood-api-0.0.1-SNAPSHOT.jar
+
+java -jar -Dspring.profiles.active=ENV02 ./target/algafood-api-0.0.1-SNAPSHOT.jar
+
+java -jar ./target/algafood-api-0.0.1-SNAPSHOT.jar --spring.profiles.active=ENV01
+
+set SPRING_PROFILES_ACTIVE=ENV02
+
+java -jar ./target/algafood-api-0.0.1-SNAPSHOT.jar
+
+
+
+manipulando variáveis de ambiente via CMD com o comando SET
+
+C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafood-api>set SPRING_PROFILES_ACTIVE=ENV02
+
+C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafood-api>set SPRING_PROFILES_ACTIVE
+SPRING_PROFILES_ACTIVE=ENV02
+
+C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafood-api>set SPRING_PROFILES_ACTIVE=
+
+C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafood-api>set SPRING_PROFILES_ACTIVE
+Variável de ambiente SPRING_PROFILES_ACTIVE não definida
