@@ -12,12 +12,11 @@ import com.example.algafood.notificacao.INotificador;
 public class AtivacaoClienteService {
 
 	@Autowired
-	private List<INotificador> notificadores;
+	private INotificador notificador;
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-		for(INotificador notificador : notificadores)
-			notificador.notificar(cliente, "Seu cadastro está ativo !");
+		notificador.notificar(cliente, "Seu cadastro está ativo !");
 	}
 
 }

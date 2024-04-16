@@ -1,10 +1,12 @@
 package com.example.algafood.notificacao;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
 
 @Component
+@Primary
 public class NotificadorEmail implements INotificador {
 
 	@Override
