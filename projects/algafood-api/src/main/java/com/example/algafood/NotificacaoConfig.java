@@ -7,28 +7,22 @@ import com.example.algafood.notificacao.NotificadorEmail;
 import com.example.algafood.service.AtivacaoClienteService;
 
 @Configuration
-public class AlgaConfig {
+public class NotificacaoConfig {
 
 	static {
-		System.out.println("AlgaConfig.static");
+		System.out.println("NotificacaoConfig.static");
 	}
 
-	public AlgaConfig() {
-		System.out.println("AlgaConfig.AlgaConfig()");
+	public NotificacaoConfig() {
+		System.out.println("NotificacaoConfig.NotificacaoConfig()");
 	}
 
-	/*@Bean
+	@Bean
 	public NotificadorEmail criaNotificadorEmail() {
-		System.out.println("AlgaConfig.criaNotificadorEmail()");
+		System.out.println("NotificacaoConfig.criaNotificadorEmail()");
 		NotificadorEmail notificadorEmail = new NotificadorEmail("smtp.algamail.com.br");
 		notificadorEmail.setCaixaAlta(true);
 		return notificadorEmail;
-	}*/
-
-	/*@Bean
-	public AtivacaoClienteService criaAtivacaoClienteService() {
-		System.out.println("AlgaConfig.criaAtivacaoClienteService()");
-		return new AtivacaoClienteService(criaNotificadorEmail());
-	}*/
+	}
 
 }
