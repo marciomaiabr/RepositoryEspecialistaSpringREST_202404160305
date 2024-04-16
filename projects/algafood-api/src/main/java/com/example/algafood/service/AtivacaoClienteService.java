@@ -8,6 +8,7 @@ import com.example.algafood.modelo.Cliente;
 @Component
 public class AtivacaoClienteService {
 
+	@Autowired
 	private INotificador notificador;
 
 	/*
@@ -30,11 +31,11 @@ public class AtivacaoClienteService {
 		notificador.notificar(cliente, "Seu cadastro está ativo !");
 	}
 
-	@Autowired
+	/*@Autowired
 	public void setNotificador(INotificador notificador) {
 		System.out.println("AtivacaoClienteService.setNotificador()");
 		System.out.println("[this.notificador=" + this.notificador + "][notificador=" + notificador + "]");
 		this.notificador = notificador;
-	}
+	}*/
 
 }
