@@ -3,25 +3,25 @@ package com.example.algafood.service;
 import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
-import com.example.algafood.notificacao.NotificadorEmail;
 
 @Component
 public class AtivacaoClienteService {
 
-	private NotificadorEmail notificadorEmail;
+	private INotificador notificador;
 
-	/*public AtivacaoClienteService() {
-		System.out.println("AtivacaoClienteService.AtivacaoClienteService()");
-	}*/
+	/*
+	 * public AtivacaoClienteService() {
+	 * System.out.println("AtivacaoClienteService.AtivacaoClienteService()"); }
+	 */
 
-	public AtivacaoClienteService(NotificadorEmail notificadorEmail) {
-		System.out.println("AtivacaoClienteService.AtivacaoClienteService(NotificadorEmail)[" + notificadorEmail + "]");
-		this.notificadorEmail = notificadorEmail;
+	public AtivacaoClienteService(INotificador notificador) {
+		System.out.println("AtivacaoClienteService.AtivacaoClienteService(" + notificador + ")[" + notificador + "]");
+		this.notificador = notificador;
 	}
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-		notificadorEmail.notificar(cliente, "Seu cadastro está ativo !");
+		notificador.notificar(cliente, "Seu cadastro está ativo !");
 	}
 
 }
