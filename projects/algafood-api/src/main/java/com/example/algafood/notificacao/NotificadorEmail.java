@@ -3,7 +3,6 @@ package com.example.algafood.notificacao;
 import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
-import com.example.algafood.service.INotificador;
 
 @Component
 public class NotificadorEmail implements INotificador {

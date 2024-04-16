@@ -1,4 +1,4 @@
-package com.example.algafood.service;
+package com.example.algafood.notificacao;
 
 import com.example.algafood.modelo.Cliente;
 
