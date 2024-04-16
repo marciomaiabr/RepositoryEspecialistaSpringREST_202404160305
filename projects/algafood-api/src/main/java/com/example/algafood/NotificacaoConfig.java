@@ -17,12 +17,12 @@ public class NotificacaoConfig {
 		System.out.println("NotificacaoConfig.NotificacaoConfig()");
 	}
 
-	@Bean
+	/*@Bean
 	public NotificadorEmail criaNotificadorEmail() {
 		System.out.println("NotificacaoConfig.criaNotificadorEmail()");
 		NotificadorEmail notificadorEmail = new NotificadorEmail("smtp.algamail.com.br");
 		notificadorEmail.setCaixaAlta(true);
 		return notificadorEmail;
-	}
+	}*/
 
 }

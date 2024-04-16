@@ -18,11 +18,11 @@ public class ServiceConfig {
 		System.out.println("ServiceConfig.ServiceConfig()");
 	}
 
-	@Bean
+	/*@Bean
 	public AtivacaoClienteService criaAtivacaoClienteService(INotificador notificador) {
 		System.out.println("ServiceConfig.criaAtivacaoClienteService()");
 		System.out.println("	"+"[notificador=" + notificador + "]");
 		return new AtivacaoClienteService(notificador);
-	}
+	}*/
 
 }
