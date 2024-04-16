@@ -1,5 +1,7 @@
 package com.example.algafood.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,15 +11,13 @@ import com.example.algafood.notificacao.INotificador;
 @Component
 public class AtivacaoClienteService {
 
-	@Autowired(required = false)
-	private INotificador notificador;
+	@Autowired
+	private List<INotificador> notificadores;
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-		if(notificador != null)
+		for(INotificador notificador : notificadores)
 			notificador.notificar(cliente, "Seu cadastro está ativo !");
-		else
-			System.out.println("Não existe notificador, mas cliente foi ativado !");
 	}
 
 }
