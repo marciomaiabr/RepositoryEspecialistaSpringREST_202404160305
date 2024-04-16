@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import com.example.algafood.modelo.Cliente;
 
 @Component
-@Qualifier("sms")
+@Qualifier("Urgente")
 public class NotificadorSMS implements INotificador {
 
 	@Override

@@ -13,7 +13,7 @@ import com.example.algafood.notificacao.INotificador;
 public class AtivacaoClienteService {
 
 	@Autowired
-	@Qualifier("sms")
+	@Qualifier("MenosUrgente")
 	private INotificador notificador;
 
 	public void ativar(Cliente cliente) {
