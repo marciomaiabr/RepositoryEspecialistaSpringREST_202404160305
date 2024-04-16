@@ -1,15 +1,14 @@
 package com.example.algafood.service;
 
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
 import com.example.algafood.notificacao.INotificador;
 import com.example.algafood.qualifiers.NivelUrgencia;
 import com.example.algafood.qualifiers.TipoDoQualificador;
 
-//@Component
+@Component
 public class AtivacaoClienteService {
 
 	static {
