@@ -1,5 +1,7 @@
 package com.example.algafood.service;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.algafood.modelo.Cliente;
@@ -8,7 +10,7 @@ import com.example.algafood.qualifiers.NivelUrgencia;
 import com.example.algafood.qualifiers.TipoDoQualificador;
 
 //@Component
-public class AtivacaoClienteService {
+public class AtivacaoClienteService implements InitializingBean , DisposableBean {
 
 	static {
 		System.out.println("AtivacaoClienteService.static");
@@ -16,10 +18,6 @@ public class AtivacaoClienteService {
 
 	public AtivacaoClienteService() {
 		System.out.println("AtivacaoClienteService.AtivacaoClienteService()");
-	}
-	
-	public void init() {
-		System.out.println("AtivacaoClienteService.init()");
 	}
 
 	@Autowired
@@ -31,8 +29,14 @@ public class AtivacaoClienteService {
 		notificador.notificar(cliente, "Seu cadastro está ativo !");
 	}
 
-	public void finish() {
-		System.out.println("AtivacaoClienteService.finish()");
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("implements InitializingBean - afterPropertiesSet()");
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("implements DisposableBean - destroy()");
 	}
 
 }

@@ -16,7 +16,7 @@ public class ServiceConfig {
 		System.out.println("ServiceConfig.ServiceConfig()");
 	}
 
-	@Bean(initMethod = "init", destroyMethod = "finish")
+	@Bean
 	public AtivacaoClienteService criaAtivacaoClienteService() {
 		System.out.println("ServiceConfig.criaAtivacaoClienteService()");
 		return new AtivacaoClienteService();
