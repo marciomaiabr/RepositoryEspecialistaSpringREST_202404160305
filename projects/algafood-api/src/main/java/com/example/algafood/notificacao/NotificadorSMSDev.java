@@ -9,12 +9,12 @@ import com.example.algafood.qualifiers.TipoDoQualificador;
 
 @Component
 @TipoDoQualificador(NivelUrgencia.URGENTE)
-@Profile("Prod")
-public class NotificadorSMS implements INotificador {
+@Profile("Dev")
+public class NotificadorSMSDev implements INotificador {
 
 	@Override
 	public void notificar(Cliente cliente, String mensagem) {
-		System.out.printf("Notificando %s através do SMS %s: %s\n", cliente.getNome(), cliente.getTelefone(), mensagem);
+		System.out.printf("Dev: Notificando %s através do SMS %s: %s\n", cliente.getNome(), cliente.getTelefone(), mensagem);
 	}
 
 }
