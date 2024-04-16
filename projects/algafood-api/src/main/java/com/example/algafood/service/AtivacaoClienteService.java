@@ -1,10 +1,7 @@
 package com.example.algafood.service;
 
-import org.springframework.stereotype.Component;
-
 import com.example.algafood.modelo.Cliente;
 
-@Component
 public class AtivacaoClienteService {
 
 	private INotificador notificador;
