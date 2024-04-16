@@ -1,17 +1,13 @@
 package com.example.algafood.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
 import com.example.algafood.notificacao.INotificador;
 import com.example.algafood.qualifiers.NivelUrgencia;
 import com.example.algafood.qualifiers.TipoDoQualificador;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
-
-@Component
+//@Component
 public class AtivacaoClienteService {
 
 	static {
@@ -22,9 +18,8 @@ public class AtivacaoClienteService {
 		System.out.println("AtivacaoClienteService.AtivacaoClienteService()");
 	}
 	
-	@PostConstruct
-	public void postConstruct() {
-		System.out.println("AtivacaoClienteService.postConstruct()");
+	public void init() {
+		System.out.println("AtivacaoClienteService.init()");
 	}
 
 	@Autowired
@@ -36,9 +31,8 @@ public class AtivacaoClienteService {
 		notificador.notificar(cliente, "Seu cadastro está ativo !");
 	}
 
-	@PreDestroy
-	public void preDestroy() {
-		System.out.println("AtivacaoClienteService.preDestroy()");
+	public void finish() {
+		System.out.println("AtivacaoClienteService.finish()");
 	}
 
 }
