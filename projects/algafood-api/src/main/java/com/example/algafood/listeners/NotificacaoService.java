@@ -21,7 +21,7 @@ public class NotificacaoService {
 	}
 
 	@Autowired
-	@TipoDoQualificador(NivelUrgencia.URGENTE)
+	@TipoDoQualificador(NivelUrgencia.NORMAL)
 	private INotificador notificador;
 
 	@EventListener
