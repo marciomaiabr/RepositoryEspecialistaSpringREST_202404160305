@@ -19,7 +19,7 @@ public class MeuPrimeiroController {
 	@ResponseBody
 	public String hello() {
 		System.out.println("MeuPrimeiroController.hello()");
-		return "Hello...";
+		return "Olá...";
 	}
 
 }
