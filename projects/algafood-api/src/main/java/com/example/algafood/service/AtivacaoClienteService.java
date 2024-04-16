@@ -15,19 +15,26 @@ public class AtivacaoClienteService {
 	 * System.out.println("AtivacaoClienteService.AtivacaoClienteService()"); }
 	 */
 
-	@Autowired
+	/*@Autowired
 	public AtivacaoClienteService(INotificador notificador) {
 		System.out.println("AtivacaoClienteService.AtivacaoClienteService(INotificador)[" + notificador + "]");
 		this.notificador = notificador;
-	}
+	}*/
 
-	public AtivacaoClienteService(String qqc) {
+	/*public AtivacaoClienteService(String qqc) {
 		System.out.println("AtivacaoClienteService.AtivacaoClienteService(String)[" + qqc + "]");
-	}
+	}*/
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
 		notificador.notificar(cliente, "Seu cadastro está ativo !");
+	}
+
+	@Autowired
+	public void setNotificador(INotificador notificador) {
+		System.out.println("AtivacaoClienteService.setNotificador()");
+		System.out.println("[this.notificador=" + this.notificador + "][notificador=" + notificador + "]");
+		this.notificador = notificador;
 	}
 
 }
