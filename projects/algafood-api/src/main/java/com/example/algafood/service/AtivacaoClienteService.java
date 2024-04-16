@@ -1,5 +1,6 @@
 package com.example.algafood.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
@@ -14,9 +15,14 @@ public class AtivacaoClienteService {
 	 * System.out.println("AtivacaoClienteService.AtivacaoClienteService()"); }
 	 */
 
+	@Autowired
 	public AtivacaoClienteService(INotificador notificador) {
-		System.out.println("AtivacaoClienteService.AtivacaoClienteService(" + notificador + ")[" + notificador + "]");
+		System.out.println("AtivacaoClienteService.AtivacaoClienteService(INotificador)[" + notificador + "]");
 		this.notificador = notificador;
+	}
+
+	public AtivacaoClienteService(String qqc) {
+		System.out.println("AtivacaoClienteService.AtivacaoClienteService(String)[" + qqc + "]");
 	}
 
 	public void ativar(Cliente cliente) {
