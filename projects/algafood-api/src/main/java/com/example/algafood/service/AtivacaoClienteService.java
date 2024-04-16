@@ -10,7 +10,7 @@ import com.example.algafood.qualifiers.NivelUrgencia;
 import com.example.algafood.qualifiers.TipoDoQualificador;
 
 //@Component
-public class AtivacaoClienteService implements InitializingBean , DisposableBean {
+public class AtivacaoClienteService {
 
 	static {
 		System.out.println("AtivacaoClienteService.static");
@@ -27,16 +27,6 @@ public class AtivacaoClienteService implements InitializingBean , DisposableBean
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
 		notificador.notificar(cliente, "Seu cadastro está ativo !");
-	}
-
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		System.out.println("implements InitializingBean - afterPropertiesSet()");
-	}
-
-	@Override
-	public void destroy() throws Exception {
-		System.out.println("implements DisposableBean - destroy()");
 	}
 
 }
