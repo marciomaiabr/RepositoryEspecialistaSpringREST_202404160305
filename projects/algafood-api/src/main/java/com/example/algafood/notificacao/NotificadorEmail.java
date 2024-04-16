@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
 
-@Component
+//@Component
 public class NotificadorEmail implements INotificador {
 
 	@Override

@@ -9,12 +9,15 @@ import com.example.algafood.notificacao.INotificador;
 @Component
 public class AtivacaoClienteService {
 
-	@Autowired
+	@Autowired(required = false)
 	private INotificador notificador;
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-		notificador.notificar(cliente, "Seu cadastro está ativo !");
+		if(notificador != null)
+			notificador.notificar(cliente, "Seu cadastro está ativo !");
+		else
+			System.out.println("Não existe notificador, mas cliente foi ativado !");
 	}
 
 }
