@@ -1,12 +1,13 @@
 package com.example.algafood.notificacao;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.example.algafood.modelo.Cliente;
+import com.example.algafood.qualifiers.NivelUrgencia;
+import com.example.algafood.qualifiers.TipoDoQualificador;
 
 @Component
-@Qualifier("MenosUrgente")
+@TipoDoQualificador(NivelUrgencia.NORMAL)
 public class NotificadorEmail implements INotificador {
 
 	@Override
