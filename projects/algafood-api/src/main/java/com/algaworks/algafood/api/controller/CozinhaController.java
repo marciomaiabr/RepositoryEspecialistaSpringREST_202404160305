@@ -41,9 +41,9 @@ public class CozinhaController {
 		return new CozinhasXmlWrapper(cozinhaRepository.listar());
 	}
 
-	@GetMapping("/{cozinhaId}")
-	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId) {
-		System.out.println("CozinhaController.buscar(Long)[" + cozinhaId + "]");
+	@GetMapping("/{cozinhaId}/{cozinhaId2}")
+	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId,@PathVariable Long cozinhaId2) {
+		System.out.println("CozinhaController.buscar(Long)[" + cozinhaId + "][" + cozinhaId2 + "]");
 		Cozinha cozinha = cozinhaRepository.buscar(cozinhaId);
 
 		if(cozinha != null)
