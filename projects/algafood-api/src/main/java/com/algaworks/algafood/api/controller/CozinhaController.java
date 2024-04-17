@@ -12,14 +12,21 @@ import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 @RestController
-@RequestMapping(value = "/cozinhas", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/cozinhas")//, produces = MediaType.APPLICATION_JSON_VALUE)
 public class CozinhaController {
 
 	@Autowired
 	private CozinhaRepository cozinhaRepository;
 
-	@GetMapping
-	public List<Cozinha> listar(){
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Cozinha> listar1(){
+		System.out.println("CozinhaController.listar1()");
+		return cozinhaRepository.listar();
+	}
+
+	@GetMapping(produces = MediaType.APPLICATION_XML_VALUE)
+	public List<Cozinha> listar2(){
+		System.out.println("CozinhaController.listar2()");
 		return cozinhaRepository.listar();
 	}
 
