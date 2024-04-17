@@ -12,15 +12,15 @@ public class ExclusaoCozinhaMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(AlgafoodApiApplication.class)
-				.web(WebApplicationType.NONE).run(args);
-
+				.web(WebApplicationType.NONE)
+				.run(args);
+		
 		CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);
-
+		
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
-
+		
 		cozinhaRepository.remover(cozinha);
-
 	}
-
+	
 }

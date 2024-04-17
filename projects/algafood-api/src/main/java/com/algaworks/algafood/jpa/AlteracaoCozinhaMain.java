@@ -12,16 +12,17 @@ public class AlteracaoCozinhaMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(AlgafoodApiApplication.class)
-				.web(WebApplicationType.NONE).run(args);
-
+				.web(WebApplicationType.NONE)
+				.run(args);
+		
 		CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);
-
+		
 		Cozinha cozinha = new Cozinha();
 		cozinha.setId(1L);
-		cozinha.setNome("Cozinha OK");
-
+		cozinha.setNome("Brasileira");
+		
 		cozinhaRepository.salvar(cozinha);
-
+		
 	}
-
+	
 }
