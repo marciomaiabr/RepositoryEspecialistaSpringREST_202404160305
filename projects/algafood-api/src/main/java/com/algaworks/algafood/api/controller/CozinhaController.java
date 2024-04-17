@@ -7,6 +7,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,9 +43,9 @@ public class CozinhaController {
 		return new CozinhasXmlWrapper(cozinhaRepository.listar());
 	}
 
-	@GetMapping("/{cozinhaId}/{cozinhaId2}")
-	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId,@PathVariable Long cozinhaId2) {
-		System.out.println("CozinhaController.buscar(Long)[" + cozinhaId + "][" + cozinhaId2 + "]");
+	@GetMapping("/{cozinhaId}")
+	public ResponseEntity<Cozinha> buscar(@PathVariable Long cozinhaId) {
+		System.out.println("CozinhaController.buscar(Long)[" + cozinhaId + "]");
 		Cozinha cozinha = cozinhaRepository.buscar(cozinhaId);
 
 		if(cozinha != null)
@@ -51,6 +53,11 @@ public class CozinhaController {
 		else
 			return ResponseEntity.notFound().build();
 
+	}
+
+	@PostMapping
+	public void adicionar(@RequestBody Cozinha cozinha) {
+		cozinhaRepository.salvar(cozinha);
 	}
 
 }
