@@ -44,14 +44,9 @@ public class CozinhaController {
 	}
 
 	@GetMapping("/{cozinhaId}")
-	public ResponseEntity<Cozinha> buscar(@PathVariable("cozinhaId") Long id) {
+	public Cozinha buscar(@PathVariable("cozinhaId") Long id) {
 		System.out.println("CozinhaController.buscar(Long)[" + id + "]");
-		Cozinha cozinha = cozinhaRepository.buscar(id);
-		
-		HttpHeaders httpHeaders = new HttpHeaders();
-		httpHeaders.add(HttpHeaders.LOCATION, "http://127.0.0.1:8081/cozinhas/1");
-		
-		return ResponseEntity.status(HttpStatus.FOUND).headers(httpHeaders).build();
+		return cozinhaRepository.buscar(id);
 	}
 
 }
