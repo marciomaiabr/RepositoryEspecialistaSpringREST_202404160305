@@ -14,6 +14,14 @@ import com.algaworks.algafood.domain.repository.CozinhaRepository;
 @Component
 public class CozinhaRepositoryImpl implements CozinhaRepository {
 
+	static {
+		System.out.println("CozinhaRepositoryImpl.static");
+	}
+
+	public CozinhaRepositoryImpl() {
+		System.out.println("CozinhaRepositoryImpl.CozinhaRepositoryImpl()");
+	}
+
 	@PersistenceContext
 	private EntityManager manager;
 	
