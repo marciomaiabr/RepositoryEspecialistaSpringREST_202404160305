@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonRootName("cozinha")
 @Data
@@ -31,6 +32,7 @@ public class Cozinha {
 	private String nome;
 
 	@JsonIgnore
+	@ToString.Exclude
 	@OneToMany(mappedBy = "cozinha")
 	private List<Restaurante> restaurantes = new ArrayList<>();
 	
