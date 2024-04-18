@@ -35,7 +35,9 @@ public class CozinhaController {
 	
 	@GetMapping
 	public List<Cozinha> listar() {
-		return cozinhaRepository.findAll();
+		List<Cozinha> cozinhas = cozinhaRepository.findAll();
+		cozinhas.forEach(System.out::println);
+		return cozinhas;
 	}
 	
 	@GetMapping("/{cozinhaId}")
