@@ -4,10 +4,10 @@
         xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm
           https://jakarta.ee/xml/ns/persistence/orm/orm_3_1.xsd" version="3.1">
 
-	<named-query name="Restaurante.consultaPorNome">
+<!-- 	<named-query name="Restaurante.consultaPorNome">
 		<query>
 			from Restaurante where nome like concat('%',:nome,'%') and cozinha.id = :id
 		</query>
-	</named-query>
+	</named-query> -->
 
 </entity-mappings>
