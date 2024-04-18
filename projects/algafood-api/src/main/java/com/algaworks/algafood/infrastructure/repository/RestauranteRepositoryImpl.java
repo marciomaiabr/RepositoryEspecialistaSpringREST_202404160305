@@ -18,8 +18,7 @@ public class RestauranteRepositoryImpl implements RestauranteRepositoryQueries {
 	private EntityManager entityManager;
 	
 	@Override
-	public List<Restaurante> qqc(String nome, BigDecimal taxaInicial, BigDecimal taxaFinal){
-		System.out.println("RestauranteRepositoryImpl.qqc()");
+	public List<Restaurante> find(String nome, BigDecimal taxaInicial, BigDecimal taxaFinal){
 		var jpql = "from Restaurante where nome like :nome and taxaFrete between :taxaFreteInicial and :taxaFreteFinal ";
 		return entityManager.createQuery(jpql, Restaurante.class)
 				.setParameter("nome", "%"+nome+"%")
