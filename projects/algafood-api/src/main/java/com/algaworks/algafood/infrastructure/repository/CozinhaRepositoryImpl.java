@@ -15,14 +15,6 @@ import com.algaworks.algafood.domain.repository.CozinhaRepository;
 @Component
 public class CozinhaRepositoryImpl implements CozinhaRepository {
 
-	static {
-		System.out.println("CozinhaRepositoryImpl.static");
-	}
-
-	public CozinhaRepositoryImpl() {
-		System.out.println("CozinhaRepositoryImpl.CozinhaRepositoryImpl()");
-	}
-
 	@PersistenceContext
 	private EntityManager manager;
 	
@@ -48,8 +40,9 @@ public class CozinhaRepositoryImpl implements CozinhaRepository {
 	public void remover(Long id) {
 		Cozinha cozinha = buscar(id);
 		
-		if(cozinha == null)
+		if (cozinha == null) {
 			throw new EmptyResultDataAccessException(1);
+		}
 		
 		manager.remove(cozinha);
 	}
