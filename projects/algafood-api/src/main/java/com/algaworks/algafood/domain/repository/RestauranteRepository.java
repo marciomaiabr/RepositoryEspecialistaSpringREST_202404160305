@@ -27,4 +27,6 @@ public interface RestauranteRepository extends JpaRepository<Restaurante, Long> 
 	
 	int countByCozinhaId(Long cozinha);
 	
+	List<Restaurante> find(String nome, BigDecimal taxaInicial, BigDecimal taxaFinal);
+	
 }
