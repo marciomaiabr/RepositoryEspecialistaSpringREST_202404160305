@@ -19,9 +19,8 @@ public class TesteController {
 	private CozinhaRepository cozinhaRepository;
 
 	@GetMapping("/cozinhas/por-nome")
-	public List<Cozinha> cozinhasPorNome(String nome1, String nome2) {
-		System.out.println("TesteController.cozinhasPorNome(String nome1, String nome2)[" + nome1 + "][" + nome2 + "]");
-		return cozinhaRepository.nome(nome1);
+	public List<Cozinha> cozinhasPorNome(String nome) {
+		return cozinhaRepository.nome(nome);
 	}
 
 }
