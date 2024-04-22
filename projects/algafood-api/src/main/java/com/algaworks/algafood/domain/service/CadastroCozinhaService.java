@@ -5,7 +5,9 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.algaworks.algafood.domain.exception.EntidadeEmUsoException;
 import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
@@ -28,7 +30,7 @@ public class CadastroCozinhaService {
 			cozinhaRepository.delete(cozinha);
 			
 		} catch (EmptyResultDataAccessException | NoSuchElementException e) {
-			throw new EntidadeNaoEncontradaException(
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND,
 				String.format("Não existe um cadastro de cozinha com código %d", cozinhaId));
 		
 		} catch (DataIntegrityViolationException e) {
