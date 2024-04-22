@@ -28,3 +28,10 @@ C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafoo
 
 C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafood-api>set SPRING_PROFILES_ACTIVE
 Variável de ambiente SPRING_PROFILES_ACTIVE não definida
+
+
+***********************************************************************************************************************************************************************************
+
+cd C:\marciomaia\git\RepositoryEspecialistaSpringREST_202404160305\projects\algafood-api
+
+mvn flyway:repair -Dflyway.configFiles=src/main/resources/flyway.properties
