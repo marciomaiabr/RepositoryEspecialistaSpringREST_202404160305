@@ -87,7 +87,7 @@ public class RestauranteController {
 		}
 	}
 	
-	/*@PatchMapping("/{restauranteId}")
+	@PatchMapping("/{restauranteId}")
 	public ResponseEntity<?> atualizarParcial(@PathVariable Long restauranteId,
 			@RequestBody Map<String, Object> campos) {
 		Restaurante restauranteAtual = restauranteRepository
@@ -116,6 +116,6 @@ public class RestauranteController {
 			
 			ReflectionUtils.setField(field, restauranteDestino, novoValor);
 		});
-	}*/
+	}
 	
 }
