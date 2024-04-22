@@ -1,5 +1,7 @@
 package com.algaworks.algafood.domain.service;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -22,9 +24,10 @@ public class CadastroCozinhaService {
 	
 	public void excluir(Long cozinhaId) {
 		try {
-			cozinhaRepository.deleteById(cozinhaId);
+			Cozinha cozinha = cozinhaRepository.findById(cozinhaId).orElseThrow();
+			cozinhaRepository.delete(cozinha);
 			
-		} catch (EmptyResultDataAccessException e) {
+		} catch (EmptyResultDataAccessException | NoSuchElementException e) {
 			throw new EntidadeNaoEncontradaException(
 				String.format("Não existe um cadastro de cozinha com código %d", cozinhaId));
 		

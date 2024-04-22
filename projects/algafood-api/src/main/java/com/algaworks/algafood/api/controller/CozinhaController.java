@@ -76,8 +76,8 @@ public class CozinhaController {
 			cadastroCozinha.excluir(cozinhaId);	
 			return ResponseEntity.noContent().build();
 			
-		} catch (EntidadeNaoEncontradaException e) {
-			return ResponseEntity.notFound().build();
+			//} catch (EntidadeNaoEncontradaException e) {
+			//return ResponseEntity.notFound().build();
 			
 		} catch (EntidadeEmUsoException e) {
 			return ResponseEntity.status(HttpStatus.CONFLICT)
