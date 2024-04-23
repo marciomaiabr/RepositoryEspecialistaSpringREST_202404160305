@@ -26,6 +26,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.algaworks.algafood.Groups;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -44,19 +45,19 @@ public class Restaurante {
 	//@NotNull
 	@Column(nullable = false)
 	//@NotEmpty
-	@NotBlank
+	@NotBlank(groups = Groups.CadastroRestaurantes.class)
 	private String nome;
 	
 	@Column(name = "taxa_frete", nullable = false)
 	//@DecimalMin("1")
-	@PositiveOrZero
+	@PositiveOrZero(groups = Groups.CadastroRestaurantes.class)
 	private BigDecimal taxaFrete;
 	
 	@Valid
 //	@JsonIgnore
 	@ManyToOne //(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cozinha_id", nullable = false)
-	@NotNull
+	@NotNull(groups = Groups.CadastroRestaurantes.class)
 	private Cozinha cozinha;
 	
 	@JsonIgnore
