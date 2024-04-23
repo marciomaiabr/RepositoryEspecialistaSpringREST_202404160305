@@ -22,6 +22,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.groups.ConvertGroup;
+import jakarta.validation.groups.Default;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -45,19 +47,20 @@ public class Restaurante {
 	//@NotNull
 	@Column(nullable = false)
 	//@NotEmpty
-	@NotBlank(groups = Groups.CadastroRestaurantes.class)
+	@NotBlank
 	private String nome;
 	
 	@Column(name = "taxa_frete", nullable = false)
 	//@DecimalMin("1")
-	@PositiveOrZero(groups = Groups.CadastroRestaurantes.class)
+	@PositiveOrZero
 	private BigDecimal taxaFrete;
 	
 	@Valid
+	@ConvertGroup(from = Default.class, to = Groups.CozinhaId.class)
 //	@JsonIgnore
 	@ManyToOne //(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cozinha_id", nullable = false)
-	@NotNull(groups = Groups.CadastroRestaurantes.class)
+	@NotNull
 	private Cozinha cozinha;
 	
 	@JsonIgnore
