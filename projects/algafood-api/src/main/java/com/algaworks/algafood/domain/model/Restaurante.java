@@ -16,7 +16,12 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -36,16 +41,22 @@ public class Restaurante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
+	//@NotNull
 	@Column(nullable = false)
+	//@NotEmpty
+	@NotBlank
 	private String nome;
 	
 	@Column(name = "taxa_frete", nullable = false)
+	//@DecimalMin("1")
+	@PositiveOrZero
 	private BigDecimal taxaFrete;
 	
+	@Valid
 //	@JsonIgnore
 	@ManyToOne //(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cozinha_id", nullable = false)
+	@NotNull
 	private Cozinha cozinha;
 	
 	@JsonIgnore
