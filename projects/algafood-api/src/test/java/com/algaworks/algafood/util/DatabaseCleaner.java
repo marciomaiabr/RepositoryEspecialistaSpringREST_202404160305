@@ -39,7 +39,6 @@ public class DatabaseCleaner {
 	
 	private void checkTestDatabase() throws SQLException {
 		String catalog = connection.getCatalog();
-		System.out.println(catalog);
 
 		if (catalog == null || !catalog.endsWith("test")) {
 			throw new RuntimeException(
