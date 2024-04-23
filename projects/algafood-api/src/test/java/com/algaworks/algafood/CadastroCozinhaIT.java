@@ -30,6 +30,7 @@ public class CadastroCozinhaIT {
 	
 	@BeforeEach
 	public void setUp() {
+		System.out.println("@BeforeEach CadastroCozinhaIT.setUp()");
 		RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 		RestAssured.port = port;
 		RestAssured.basePath = "/cozinhas";
