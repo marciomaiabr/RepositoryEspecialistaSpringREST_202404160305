@@ -59,7 +59,6 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
-	@Order(1)
 	public void deveRetornarStatus200_QuandoConsultarCozinhas() {
 		given()
 			.accept(ContentType.JSON)
@@ -70,7 +69,6 @@ public class CadastroCozinhaIT {
 	}
 
 	@Test
-	@Order(3)
 	public void deveRetornarQuantidadeCorretaDeCozinhas_QuandoConsultarCozinhas() {
 		given()
 			.accept(ContentType.JSON)
@@ -81,7 +79,6 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
-	@Order(5)
 	public void deveRetornarStatus201_QuandoCadastrarCozinha() {
 		given()
 			.body(jsonCorretoCozinhaChinesa)
@@ -92,26 +89,8 @@ public class CadastroCozinhaIT {
 		.then()
 			.statusCode(HttpStatus.CREATED.value());
 	}
-	
-	@Test
-	@Order(6)
-	public void deveRetornarStatus201_QuandoCadastrarCozinha_WithJsonObject() {
-		System.out.println("CadastroCozinhaIT.deveRetornarStatus201_QuandoCadastrarCozinha_WithJsonObject()");
-		JsonObject jsonObject = Json.createObjectBuilder().add("nome", "Cuiabana 20240424 0515").build();
-		String jsonObjectToString = jsonObject.toString();
-		System.out.println("[jsonObjectToString="+jsonObjectToString+"]");
-		given()
-			.body(jsonObjectToString)
-			.contentType(ContentType.JSON)
-			.accept(ContentType.JSON)
-		.when()
-			.post()
-		.then()
-			.statusCode(HttpStatus.CREATED.value());
-	}
 
 	@Test
-	@Order(4)
 	public void deveRetornarRespostaEStatusCorretos_QuandoConsultarCozinhaExistente() {
 		given()
 			.pathParam("cozinhaId", cozinhaAmericana.getId())
@@ -124,7 +103,6 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
-	@Order(2)
 	public void deveRetornarStatus404_QuandoConsultarCozinhaInexistente() {
 		given()
 			.pathParam("cozinhaId", COZINHA_ID_INEXISTENTE)
