@@ -19,6 +19,8 @@ import com.algaworks.algafood.util.ResourceUtils;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import jakarta.json.Json;
+import jakarta.json.JsonObject;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource("/application-test.properties")
@@ -76,6 +78,22 @@ public class CadastroCozinhaIT {
 	public void deveRetornarStatus201_QuandoCadastrarCozinha() {
 		given()
 			.body(jsonCorretoCozinhaChinesa)
+			.contentType(ContentType.JSON)
+			.accept(ContentType.JSON)
+		.when()
+			.post()
+		.then()
+			.statusCode(HttpStatus.CREATED.value());
+	}
+	
+	@Test
+	public void deveRetornarStatus201_QuandoCadastrarCozinha_WithJsonObject() {
+		System.out.println("CadastroCozinhaIT.deveRetornarStatus201_QuandoCadastrarCozinha_WithJsonObject()");
+		JsonObject jsonObject = Json.createObjectBuilder().add("nome", "Cuiabana 20240424 0515").build();
+		String jsonObjectToString = jsonObject.toString();
+		System.out.println("[jsonObjectToString="+jsonObjectToString+"]");
+		given()
+			.body(jsonObjectToString)
 			.contentType(ContentType.JSON)
 			.accept(ContentType.JSON)
 		.when()
