@@ -5,7 +5,10 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -22,6 +25,7 @@ import io.restassured.http.ContentType;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
 
+@TestMethodOrder(OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource("/application-test.properties")
 public class CadastroCozinhaIT {
@@ -55,6 +59,7 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
+	@Order(1)
 	public void deveRetornarStatus200_QuandoConsultarCozinhas() {
 		given()
 			.accept(ContentType.JSON)
@@ -65,6 +70,7 @@ public class CadastroCozinhaIT {
 	}
 
 	@Test
+	@Order(3)
 	public void deveRetornarQuantidadeCorretaDeCozinhas_QuandoConsultarCozinhas() {
 		given()
 			.accept(ContentType.JSON)
@@ -75,6 +81,7 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
+	@Order(5)
 	public void deveRetornarStatus201_QuandoCadastrarCozinha() {
 		given()
 			.body(jsonCorretoCozinhaChinesa)
@@ -87,6 +94,7 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
+	@Order(6)
 	public void deveRetornarStatus201_QuandoCadastrarCozinha_WithJsonObject() {
 		System.out.println("CadastroCozinhaIT.deveRetornarStatus201_QuandoCadastrarCozinha_WithJsonObject()");
 		JsonObject jsonObject = Json.createObjectBuilder().add("nome", "Cuiabana 20240424 0515").build();
@@ -103,6 +111,7 @@ public class CadastroCozinhaIT {
 	}
 
 	@Test
+	@Order(4)
 	public void deveRetornarRespostaEStatusCorretos_QuandoConsultarCozinhaExistente() {
 		given()
 			.pathParam("cozinhaId", cozinhaAmericana.getId())
@@ -115,6 +124,7 @@ public class CadastroCozinhaIT {
 	}
 	
 	@Test
+	@Order(2)
 	public void deveRetornarStatus404_QuandoConsultarCozinhaInexistente() {
 		given()
 			.pathParam("cozinhaId", COZINHA_ID_INEXISTENTE)
