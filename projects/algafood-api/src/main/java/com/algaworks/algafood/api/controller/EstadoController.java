@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,9 +41,8 @@ public class EstadoController {
 	private EstadoInputDisassembler estadoInputDisassembler;
 	
 	@GetMapping
-	public List<EstadoModel> listar(@RequestParam(required = false, defaultValue = "") String nome) {
-		System.out.println("[nome="+nome+"]");
-		List<Estado> todosEstados = estadoRepository.findByNomeContaining(nome);
+	public List<EstadoModel> listar() {
+		List<Estado> todosEstados = estadoRepository.findAll();
 		
 		return estadoModelAssembler.toCollectionModel(todosEstados);
 	}
